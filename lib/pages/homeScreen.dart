@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/Auth/UserPreferences.dart';
 import 'package:project/pages/homePage.dart';
 import 'package:project/pages/Auth/login.dart';
 import 'package:project/pages/UI/cardDetails.dart';
@@ -17,8 +18,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
-  void _logout() {
-    // Log out and navigate back to the login page
+  void _logout() async {
+    // Clear login status using the new class
+    await UserPreferences.clearLoggedIn();
+
+    // Navigate back to the login page
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => LoginPage()),
@@ -344,7 +348,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ProfilePage(username: widget.username),
+                    builder: (context) =>
+                        ProfilePage(username: widget.username),
                   ),
                 );
               },

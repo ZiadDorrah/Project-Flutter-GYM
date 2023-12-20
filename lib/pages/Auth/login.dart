@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/Auth/UserPreferences.dart';
 import 'package:project/pages/homeScreen.dart';
-import '../DatabaseHelper.dart'; // Ensure this import is correct
+import '../DatabaseHelper.dart';
 import './signup.dart';
 import '../profilePage.dart';
 
@@ -35,10 +36,11 @@ class LoginPage extends StatelessWidget {
                 String username = _usernameController.text.trim();
                 String password = _passwordController.text.trim();
 
-                // Check if the user exists in the database
                 User? user = await DatabaseHelper.instance.getUserr(username);
 
                 if (user != null && user.password == password) {
+                  await UserPreferences.setLoggedIn(true);
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

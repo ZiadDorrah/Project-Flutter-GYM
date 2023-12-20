@@ -5,7 +5,8 @@ import './login.dart';
 class SignUpPage extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
@@ -45,14 +46,16 @@ class SignUpPage extends StatelessWidget {
               TextField(
                 controller: _confirmPasswordController,
                 obscureText: true,
-                decoration: const InputDecoration(labelText: 'Confirm Password'),
+                decoration:
+                    const InputDecoration(labelText: 'Confirm Password'),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () async {
                   String username = _usernameController.text.trim();
                   String password = _passwordController.text.trim();
-                  String confirmPassword = _confirmPasswordController.text.trim();
+                  String confirmPassword =
+                      _confirmPasswordController.text.trim();
                   String email = _emailController.text.trim();
                   String phone = _phoneController.text.trim();
 
@@ -73,7 +76,8 @@ class SignUpPage extends StatelessWidget {
                       ),
                     );
                   } else {
-                    User? existingUser = await DatabaseHelper.instance.getUserr(username);
+                    User? existingUser =
+                        await DatabaseHelper.instance.getUserr(username);
 
                     if (existingUser != null) {
                       showDialog(

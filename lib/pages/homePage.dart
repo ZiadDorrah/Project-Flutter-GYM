@@ -151,7 +151,7 @@ class HomePage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TestimonialCard(
                           testimonial:
-                              'I love the intense workouts at IronPulse Gym. The atmosphere is motivating, and the trainers are incredible!',
+                              'I love the intense workouts at IronPulse Gym. The atmosphere is motivating, and the trainers!',
                           memberName: 'Alice Johnson',
                           memberAvatar:
                               'assets/profile_image.png', // Replace with member avatar image path
