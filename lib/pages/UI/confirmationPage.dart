@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/homeScreen.dart';
 
 class ConfirmationPage extends StatelessWidget {
   final bool isFormValid;
@@ -36,8 +37,13 @@ class ConfirmationPage extends StatelessWidget {
             SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                // Navigate back to the home page
-                Navigator.popUntil(context, (route) => route.isFirst);
+                // Navigate back to the home page using the named route
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(username: 'username'),
+                  ),
+                );
               },
               child: Text('Back to Home'),
             ),
