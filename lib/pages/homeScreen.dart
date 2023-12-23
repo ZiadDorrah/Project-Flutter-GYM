@@ -19,10 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   void _logout() async {
-    // Clear login status using the new class
     await UserPreferences.clearLoggedIn();
-
-    // Navigate back to the login page
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => LoginPage()),
@@ -354,7 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
-            Divider(), // Add a divider between items
+            Divider(),
             ListTile(
               title: Text('Admin'),
               leading: Icon(
@@ -368,46 +365,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
-            Divider(), // Add a divider between items
+            Divider(),
             ListTile(
               title: Text('Privacy'),
               leading: Icon(
                 Icons.privacy_tip,
                 color: Color(0xFF4A3298),
               ),
-              onTap: () {
-                _logout();
-                // Perform logout action
-                // Add your logout logic here
-              },
+              onTap: () {},
             ),
-            Divider(), // Add a divider between items
+            Divider(),
             ListTile(
               title: Text('Language'),
               leading: Icon(
                 Icons.language,
                 color: Color(0xFF4A3298),
               ),
-              onTap: () {
-                _logout();
-                // Perform logout action
-                // Add your logout logic here
-              },
+              onTap: () {},
             ),
-            Divider(), // Add a divider between items
+            Divider(),
             ListTile(
               title: Text('Add Payment'),
               leading: Icon(
                 Icons.payment,
                 color: Color(0xFF4A3298),
               ),
-              onTap: () {
-                _logout();
-                // Perform logout action
-                // Add your logout logic here
-              },
+              onTap: () {},
             ),
-            Divider(), // Add a divider between items
+            Divider(),
             ListTile(
               title: Text('Logout'),
               leading: Icon(
@@ -416,8 +401,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               onTap: () {
                 _logout();
-                // Perform logout action
-                // Add your logout logic here
               },
             ),
           ],

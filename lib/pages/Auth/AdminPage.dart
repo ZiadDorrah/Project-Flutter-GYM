@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import '../DatabaseHelper.dart';
 import './EditUserPage.dart';
 
@@ -9,7 +9,6 @@ class AdminPage extends StatefulWidget {
 
 class _AdminPageState extends State<AdminPage> {
   final dbHelper = DatabaseHelper.instance;
-
 
   @override
   Widget build(BuildContext context) {
@@ -27,22 +26,19 @@ class _AdminPageState extends State<AdminPage> {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return Text('No users found');
           } else {
-            // Display the list of users
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 var user = snapshot.data![index];
                 return ListTile(
                   title: Text(user['username']),
-                  subtitle: Text(user[
-                      'password']), // For illustration purposes; consider security!
+                  subtitle: Text(user['password']),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
                         icon: Icon(Icons.edit),
                         onPressed: () {
-                          // Implement edit functionality
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -63,24 +59,17 @@ class _AdminPageState extends State<AdminPage> {
                                 actions: [
                                   TextButton(
                                     onPressed: () async {
-                                      Navigator.pop(
-                                          context); // Close the dialog
-                                      // Check if the 'id' field exists in the user map
+                                      Navigator.pop(context);
                                       if (user.containsKey('id')) {
-                                        await dbHelper.deleteUser(
-                                            user['id']); // Delete user by 'id'
-                                        setState(
-                                            () {}); // Refresh the UI after deletion
-                                      } else {
-                                        // Handle the case where 'id' doesn't exist in the user map
-                                      }
+                                        await dbHelper.deleteUser(user['id']);
+                                        setState(() {});
+                                      } else {}
                                     },
                                     child: Text('Yes'),
                                   ),
                                   TextButton(
                                     onPressed: () {
-                                      Navigator.pop(
-                                          context); // Close the dialog
+                                      Navigator.pop(context);
                                     },
                                     child: Text('No'),
                                   ),
@@ -97,7 +86,7 @@ class _AdminPageState extends State<AdminPage> {
             );
           }
         },
-    ),
-);
-}
+      ),
+    );
+  }
 }

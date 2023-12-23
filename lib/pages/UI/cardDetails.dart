@@ -58,7 +58,6 @@ class CardDetailsPage extends StatelessWidget {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        // Add your button functionality here
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -69,7 +68,7 @@ class CardDetailsPage extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.orange, // Change button color
+                        primary: Colors.orange,
                       ),
                       child: const Padding(
                         padding: EdgeInsets.all(16.0),

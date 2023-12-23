@@ -9,7 +9,6 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             _buildHomePageContent(),
-            // Add more pages if needed
           ],
         ),
       ),
@@ -50,13 +49,10 @@ class HomePage extends StatelessWidget {
         SizedBox(
           height: 260,
           child: PageView.builder(
-            itemCount: 5, // Replace with the number of products
+            itemCount: 5,
             itemBuilder: (BuildContext context, int index) {
-              // Placeholder data for demonstration
               final productName = 'Product ${index + 1}';
-              final productPrice =
-                  '\$${(index + 10) * 55}'; // Replace with your product prices
-
+              final productPrice = '\$${(index + 10) * 55}';
               return Container(
                 margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Card(
@@ -72,7 +68,7 @@ class HomePage extends StatelessWidget {
                           top: Radius.circular(20),
                         ),
                         child: Image.asset(
-                          'assets/download${index + 1}.jpeg', // Replace with your image path
+                          'assets/download${index + 1}.jpeg',
                           height: 150,
                           fit: BoxFit.cover,
                         ),
@@ -133,7 +129,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(16), // Add padding as needed
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -144,7 +140,7 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 230,
                 child: PageView.builder(
-                  itemCount: 2, // Number of testimonials
+                  itemCount: 2,
                   itemBuilder: (BuildContext context, int index) {
                     if (index == 0) {
                       return Padding(
@@ -153,8 +149,7 @@ class HomePage extends StatelessWidget {
                           testimonial:
                               'I love the intense workouts at IronPulse Gym. The atmosphere is motivating, and the trainers!',
                           memberName: 'Alice Johnson',
-                          memberAvatar:
-                              'assets/profile_image.png', // Replace with member avatar image path
+                          memberAvatar: 'assets/profile_image.png',
                         ),
                       );
                     } else if (index == 1) {
@@ -164,20 +159,17 @@ class HomePage extends StatelessWidget {
                           testimonial:
                               'IronPulse Gym has transformed my fitness journey. The variety of workouts keeps things interesting!',
                           memberName: 'Bob Smith',
-                          memberAvatar:
-                              'assets/profile_image.png', // Replace with member avatar image path
+                          memberAvatar: 'assets/profile_image.png',
                         ),
                       );
                     }
-                    return Container(); // Return an empty container if index is out of bounds
+                    return Container();
                   },
                 ),
               ),
             ],
           ),
         )
-
-        // Add more content as needed
       ],
     );
   }

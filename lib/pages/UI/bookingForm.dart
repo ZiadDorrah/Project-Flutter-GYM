@@ -83,9 +83,7 @@ class _BookingFormPageState extends State<BookingFormPage> {
                   controller: _cardNumberController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(labelText: 'Card Number'),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly
-                  ], // Only allow digits
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your card number';
@@ -105,7 +103,7 @@ class _BookingFormPageState extends State<BookingFormPage> {
                         decoration: InputDecoration(labelText: 'Expiry Month'),
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
-                        ], // Only allow digits
+                        ],
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter expiry month';
@@ -126,7 +124,7 @@ class _BookingFormPageState extends State<BookingFormPage> {
                         decoration: InputDecoration(labelText: 'Expiry Year'),
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
-                        ], // Only allow digits
+                        ],
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter expiry year';
@@ -146,7 +144,7 @@ class _BookingFormPageState extends State<BookingFormPage> {
                         decoration: InputDecoration(labelText: 'CVV'),
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly
-                        ], // Only allow digits
+                        ],
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter CVV';
@@ -163,8 +161,6 @@ class _BookingFormPageState extends State<BookingFormPage> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // Form is valid, proceed with booking logic
-                      // Access entered data using controllers
                       final name = _nameController.text;
                       final email = _emailController.text;
                       final phone = _phoneController.text;
@@ -172,13 +168,11 @@ class _BookingFormPageState extends State<BookingFormPage> {
                       final expiryMonth = _expiryMonthController.text;
                       final expiryYear = _expiryYearController.text;
                       final cvv = _cvvController.text;
-
-                      // Navigate to ConfirmationPage with the form validation result
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => ConfirmationPage(
-                            isFormValid: true, // Pass true for success
+                            isFormValid: true,
                           ),
                         ),
                       );

@@ -37,7 +37,6 @@ class ConfirmationPage extends StatelessWidget {
             SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                // Navigate back to the home page using the named route
                 Navigator.push(
                   context,
                   MaterialPageRoute(
